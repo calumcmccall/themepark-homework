@@ -30,15 +30,15 @@ public class PlaygroundTest {
     }
 
     @Test
-    public void onlyAllowOldEnough() {
+    public void dontAllowTooOld() {
         Visitor visitor1 = new Visitor(18, 1.68, 32);
-        assertEquals(true, playground.isAllowedTo(visitor1));
+        assertEquals(false, playground.isAllowedTo(visitor1));
     }
 
     @Test
-    public void notAllowedTooYoung() {
+    public void allowYoungEnough() {
         Visitor visitor1 = new Visitor(7, 1.12, 3);
-        assertEquals(false, playground.isAllowedTo(visitor1));
+        assertEquals(true, playground.isAllowedTo(visitor1));
     }
 
 }
